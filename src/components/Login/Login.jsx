@@ -1,4 +1,11 @@
 import React from 'react';
+
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useDispatch } from 'react-redux';
 import { loginUserThunk } from 'redux/operations';
 
@@ -17,20 +24,37 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login Into Your Account</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Email</p>
-          <input name="userEmail" type="email" required />
-        </label>
+    <Container style={{ marginTop: '40px' }}>
+      <Card style={{ padding: '20px' }}>
+        <Card.Title className="text-center">Login Into Your Account</Card.Title>
 
-        <label>
-          <p>Password</p>
-          <input name="userPassword" type="password" required minLength={8} />
-        </label>
-        <button>Log In</button>
-      </form>
-    </div>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              name="userEmail"
+              type="email"
+              required
+              placeholder="Email"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              name="userPassword"
+              type="password"
+              required
+              minLength={8}
+              placeholder="Password"
+            />
+          </Form.Group>
+
+          <Button variant="info" type="submit">
+            Log In
+          </Button>
+        </Form>
+      </Card>
+    </Container>
   );
 };

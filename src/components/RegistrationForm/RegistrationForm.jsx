@@ -1,4 +1,11 @@
 import React from 'react';
+
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useDispatch } from 'react-redux';
 import { registerUserThunk } from 'redux/operations';
 
@@ -16,25 +23,46 @@ export const RegistrationForm = () => {
   };
 
   return (
-    <div>
-      <h1>Register Your Account</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Name</p>
-          <input name="userName" type="text" required />
-        </label>
+    <Container style={{ marginTop: '40px' }}>
+      <Card style={{ padding: '20px' }}>
+        <Card.Title className="text-center">Register Your Account</Card.Title>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              name="userName"
+              type="text"
+              required
+              placeholder="Name"
+            />
+          </Form.Group>
 
-        <label>
-          <p>Email</p>
-          <input name="userEmail" type="email" required />
-        </label>
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              name="userEmail"
+              type="email"
+              required
+              placeholder="Email"
+            />
+          </Form.Group>
 
-        <label>
-          <p>Password</p>
-          <input name="userPassword" type="password" required minLength={8} />
-        </label>
-        <button>Sign Up</button>
-      </form>
-    </div>
+          <Form.Group className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              name="userPassword"
+              type="email"
+              required
+              placeholder="Password"
+              minLength={8}
+            />
+          </Form.Group>
+
+          <Button variant="info" type="submit">
+            Sign Up
+          </Button>
+        </Form>
+      </Card>
+    </Container>
   );
 };

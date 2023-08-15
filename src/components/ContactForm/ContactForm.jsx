@@ -15,7 +15,6 @@ export const ContactForm = () => {
     const { name, number } = event.target.elements;
     const contValue = { name: name.value, number: number.value };
 
-    console.log('contValue: ', contValue.name);
     contacts.some(({ name }) => name === contValue.name)
       ? alert(`${contValue.name} is already in contacts`)
       : dispatch(addContact(contValue));

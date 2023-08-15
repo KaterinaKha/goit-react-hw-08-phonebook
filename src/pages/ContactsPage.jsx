@@ -14,7 +14,7 @@ import {
 
 const ContactsPage = () => {
   const authentificated = useSelector(selectAuthentificated);
-  // const contacts = useSelector(selectContacts);
+
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
