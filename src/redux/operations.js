@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const $instance = axios.create({
+export const $instance = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
   headers: {
     Authorization: `Bearer token...`,
@@ -66,6 +66,49 @@ export const logOutUserThunk = createAsyncThunk(
     try {
       const { data } = await $instance.post('/users/logout');
       clearToken();
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+//----- get all contacts -----
+export const fetchAllContacts = createAsyncThunk(
+  'contacts/getAll',
+  async (_, thunkApi) => {
+    try {
+      const { data } = await $instance.get('/contacts');
+
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+//----- add contacts -----
+export const addContact = createAsyncThunk(
+  'contacts/addContact',
+  async (contact, thunkApi) => {
+    try {
+      const { data } = await $instance.post('/contacts', contact);
+      console.log('data', data);
+
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+//----- delete contacts -----
+export const deleteContact = createAsyncThunk(
+  'contacts/deleteContact',
+  async (contactId, thunkApi) => {
+    try {
+      const { data } = await $instance.delete(`/contacts/${contactId}`);
+
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

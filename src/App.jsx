@@ -1,4 +1,5 @@
 import { StyledNavLink } from 'App.styled';
+import Loader from 'components/Loader/Loader';
 import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
@@ -16,10 +17,10 @@ export const App = () => {
   const authentificated = useSelector(selectAuthentificated);
 
   useEffect(() => {
-    if (!token) return;
+    if (!token || authentificated) return;
 
     dispatch(refreshUserThunk());
-  }, [token, dispatch]);
+  }, [token, dispatch, authentificated]);
 
   const handleLogOut = () => {
     dispatch(logOutUserThunk());
@@ -44,7 +45,7 @@ export const App = () => {
         </nav>
       </header>
       <main>
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/contacts" element={<ContactsPage />} />

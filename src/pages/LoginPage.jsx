@@ -10,9 +10,9 @@ const LoginPage = () => {
   if (authentificated) return <Navigate to="/contacts" />;
 
   return (
-    <>
+    <div>
       <Login />
-    </>
+    </div>
   );
 };
 

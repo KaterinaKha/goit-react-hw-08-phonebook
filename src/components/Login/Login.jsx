@@ -29,7 +29,7 @@ export const Login = () => {
           <p>Password</p>
           <input name="userPassword" type="password" required minLength={8} />
         </label>
-        <button>Sign Up</button>
+        <button>Log In</button>
       </form>
     </div>
   );
