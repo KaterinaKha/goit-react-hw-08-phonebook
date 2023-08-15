@@ -51,7 +51,7 @@ export const RegistrationForm = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               name="userPassword"
-              type="email"
+              type="password"
               required
               placeholder="Password"
               minLength={8}
