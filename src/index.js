@@ -10,7 +10,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from 'react-bootstrap';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ThemeProvider breakpoints={['xl', 'sm', 'xxs']} minBreakpoint="xxs">
+  <ThemeProvider breakpoints={['xl', 'xs', 'sm']} minBreakpoint="xxs">
     <Provider store={store}>
       <PersistGate loading={<p>loading...</p>} persistor={persistor}>
         <BrowserRouter basename="/goit-react-hw-08-phonebook">

@@ -1,4 +1,8 @@
-import css from './Contact.module.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilteredContacts } from 'redux/selectors';
 
@@ -13,19 +17,25 @@ export const ContactList = () => {
   };
 
   return (
-    <ul className={css.contactList}>
+    <ListGroup>
       {filteredContacts.length > 0 &&
         filteredContacts.map(({ id, name, number }) => (
-          <li className={css.contactItem} key={id}>
-            {name}: <span className={css.contactNumber}> {number}</span>
-            <button
-              className={css.contactDeleteBtn}
-              onClick={() => onDelContact(id)}
-            >
-              Delete
-            </button>
-          </li>
+          <ListGroup.Item key={id}>
+            <div className="d-flex justify-content-between align-items-center">
+              <div>
+                {name}: {number}
+              </div>
+              <Button
+                variant="info"
+                size="sm"
+                onClick={() => onDelContact(id)}
+                className="ml-auto"
+              >
+                Delete
+              </Button>
+            </div>
+          </ListGroup.Item>
         ))}
-    </ul>
+    </ListGroup>
   );
 };

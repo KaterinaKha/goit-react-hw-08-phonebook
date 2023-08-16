@@ -3,7 +3,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useDispatch } from 'react-redux';
@@ -24,9 +24,9 @@ export const Login = () => {
   };
 
   return (
-    <Container style={{ marginTop: '40px' }}>
+    <div>
       <Card style={{ padding: '20px' }}>
-        <Card.Title className="text-center">Login Into Your Account</Card.Title>
+        <h3 className="text-center">Login Into Your Account</h3>
 
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
@@ -55,6 +55,6 @@ export const Login = () => {
           </Button>
         </Form>
       </Card>
-    </Container>
+    </div>
   );
 };

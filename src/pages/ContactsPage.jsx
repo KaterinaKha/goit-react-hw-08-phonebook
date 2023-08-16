@@ -1,3 +1,7 @@
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { FilterContacts } from 'components/Filter/Filter';
@@ -29,12 +33,19 @@ const ContactsPage = () => {
     <div>
       {isLoading && <Loader />}
       {error && <p>Oops, some error occured...</p>}
-      {}
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <FilterContacts />
-      <ContactList />
+      <Card style={{ padding: '20px' }}>
+        <h1 className="text-center">Phonebook</h1>
+        <ContactForm />
+        <Container style={{ marginTop: '10px' }}>
+          <Card style={{ padding: '20px' }}>
+            <h2 className="text-center" style={{ marginBottom: '10px' }}>
+              Contacts
+            </h2>
+            <FilterContacts />
+            <ContactList />
+          </Card>
+        </Container>
+      </Card>
     </div>
   );
 };

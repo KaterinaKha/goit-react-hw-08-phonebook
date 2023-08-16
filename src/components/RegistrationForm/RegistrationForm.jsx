@@ -25,7 +25,7 @@ export const RegistrationForm = () => {
   return (
     <Container style={{ marginTop: '40px' }}>
       <Card style={{ padding: '20px' }}>
-        <Card.Title className="text-center">Register Your Account</Card.Title>
+        <h3 className="text-center">Register Your Account</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label>Name</Form.Label>
