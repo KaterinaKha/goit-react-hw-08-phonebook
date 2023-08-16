@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilteredContacts } from 'redux/selectors';
-
 import { deleteContact } from 'redux/operations';
 
 export const ContactList = () => {
