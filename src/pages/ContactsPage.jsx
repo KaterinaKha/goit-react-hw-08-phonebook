@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllContacts } from 'redux/operations';
 import {
   selectAuthentificated,
-  // selectContacts,
   selectError,
   selectIsLoading,
 } from 'redux/selectors';
